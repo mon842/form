@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import LoginIcon from '@mui/icons-material/Login';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -60,22 +60,29 @@ export default function FormF() {
     });
 
     return (
-        <ThemeProvider theme={defaultTheme}>
+        <ThemeProvider theme={defaultTheme} >
 
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="sm">
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 8,
+                        mt: 8,
+                        mb: 4,
+                        p: 1,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
+                        border: 1,
+                        borderRadius: '16px',
+                        borderColor: 'primary.main'
                     }}
                 >
-
+                    <LoginIcon sx={{ m: 1}} />
                     <Typography component="h1" variant="h5" sx={{ marginBottom: 2 }}>
                         Sign in
+
                     </Typography>
+
 
                     <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 1 }}>
                         <FormControl sx={{ width: '100%', mb: 2 }}>
@@ -170,7 +177,7 @@ export default function FormF() {
                             </Select>
                         </FormControl>
 
-                        {formik.values.name && formik.values.address && formik.values.country && formik.values.picked ? <Button sx={{
+                        {formik.values.name && formik.values.address && formik.values.country && formik.values.picked && formik.values.intrest[0] ? <Button sx={{
                             marginTop: 2, mb: 5
                         }} fullWidth variant="outlined" type='submit'>Submit</Button> : <Button sx={{
                             marginTop: 2, mb: 5
